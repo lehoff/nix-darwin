@@ -54,7 +54,8 @@ in
 
     brewPrefix = mkOption {
       type = types.str;
-      default = if pkgs.stdenv.hostPlatform.isAarch64 then "/opt/homebrew/bin" else "/usr/local/bin";
+      # Detectionnn does not work on my M2 Air, so we hardwire to Apple silicon.
+      default = "/opt/homebrew/bin";
       description = ''
         Customize path prefix where executable of <command>brew</command> is searched for.
       '';
